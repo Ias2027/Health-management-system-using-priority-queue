@@ -1,72 +1,72 @@
-const API_BASE_URL = "https://healthcare-backend-ghcl.onrender.com"; // Render backend URL
+const API_BASE_URL =  "https://health-management-system-using-priority-c5xv.onrender.com"// Render backend URL
 
 const DISEASE_CATS = {
   "General OPD": {
     label: 'General OPD',
     color: '#2c7a4b', bg: '#e8f5ed', border: '#a3d9b9',
     diseases: [
-      {name: 'Cough', severity: 2}, {name: 'Cold & Runny Nose', severity: 2}, {name: 'Fever', severity: 4}, 
-      {name: 'Sore Throat', severity: 3}, {name: 'Headache', severity: 3},
-      {name: 'Body Pain', severity: 3}, {name: 'Loose Motion', severity: 4}, {name: 'Diarrhoea', severity: 4}, 
-      {name: 'Vomiting', severity: 4}, {name: 'Nausea', severity: 3},
-      {name: 'Stomach Ache', severity: 4}, {name: 'Acidity / Gas', severity: 2}, {name: 'Constipation', severity: 2}, 
-      {name: 'Skin Rash', severity: 3}, {name: 'Eye Irritation', severity: 2},
-      {name: 'Ear Pain', severity: 4}, {name: 'Toothache', severity: 4}, {name: 'Mouth Ulcers', severity: 2}, 
-      {name: 'Fatigue / Weakness', severity: 3}, {name: 'Mild Dehydration', severity: 5},
+      { name: 'Cough', severity: 2 }, { name: 'Cold & Runny Nose', severity: 2 }, { name: 'Fever', severity: 4 },
+      { name: 'Sore Throat', severity: 3 }, { name: 'Headache', severity: 3 },
+      { name: 'Body Pain', severity: 3 }, { name: 'Loose Motion', severity: 4 }, { name: 'Diarrhoea', severity: 4 },
+      { name: 'Vomiting', severity: 4 }, { name: 'Nausea', severity: 3 },
+      { name: 'Stomach Ache', severity: 4 }, { name: 'Acidity / Gas', severity: 2 }, { name: 'Constipation', severity: 2 },
+      { name: 'Skin Rash', severity: 3 }, { name: 'Eye Irritation', severity: 2 },
+      { name: 'Ear Pain', severity: 4 }, { name: 'Toothache', severity: 4 }, { name: 'Mouth Ulcers', severity: 2 },
+      { name: 'Fatigue / Weakness', severity: 3 }, { name: 'Mild Dehydration', severity: 5 },
     ]
   },
   "Orthopedics": {
     label: 'Orthopaedics',
     color: '#9a3412', bg: '#fff7ed', border: '#fdba74',
     diseases: [
-      {name: 'Bone Fracture', severity: 7}, {name: 'Hairline Fracture', severity: 5}, {name: 'Dislocation', severity: 7}, 
-      {name: 'Ligament Tear', severity: 6},
-      {name: 'Muscle Sprain', severity: 4}, {name: 'Joint Pain', severity: 3}, {name: 'Knee Pain', severity: 3}, 
-      {name: 'Back Pain', severity: 4}, {name: 'Neck Pain', severity: 3},
-      {name: 'Shoulder Injury', severity: 5}, {name: 'Wrist Injury', severity: 5}, {name: 'Ankle Sprain', severity: 4}, 
-      {name: 'Hip Pain', severity: 5},
-      {name: 'Arthritis Flare', severity: 4}, {name: 'Slipped Disc', severity: 6}, {name: 'Swollen Joint', severity: 4},
+      { name: 'Bone Fracture', severity: 7 }, { name: 'Hairline Fracture', severity: 5 }, { name: 'Dislocation', severity: 7 },
+      { name: 'Ligament Tear', severity: 6 },
+      { name: 'Muscle Sprain', severity: 4 }, { name: 'Joint Pain', severity: 3 }, { name: 'Knee Pain', severity: 3 },
+      { name: 'Back Pain', severity: 4 }, { name: 'Neck Pain', severity: 3 },
+      { name: 'Shoulder Injury', severity: 5 }, { name: 'Wrist Injury', severity: 5 }, { name: 'Ankle Sprain', severity: 4 },
+      { name: 'Hip Pain', severity: 5 },
+      { name: 'Arthritis Flare', severity: 4 }, { name: 'Slipped Disc', severity: 6 }, { name: 'Swollen Joint', severity: 4 },
     ]
   },
   "Emergency": {
     label: 'Emergency',
     color: '#c0392b', bg: '#f9eae8', border: '#f5a99f',
     diseases: [
-      {name: 'Road Accident', severity: 10}, {name: 'Fall from Height', severity: 9}, {name: 'Head Trauma', severity: 10}, 
-      {name: 'Severe Burns', severity: 9},
-      {name: 'Cardiac Arrest', severity: 10}, {name: 'Heart Attack', severity: 10}, {name: 'Stroke', severity: 10}, 
-      {name: 'Unconsciousness', severity: 9},
-      {name: 'Poisoning / Overdose', severity: 10}, {name: 'Drowning', severity: 10}, {name: 'Electrocution', severity: 10}, 
-      {name: 'Stab Wound', severity: 10},
-      {name: 'Gunshot Wound', severity: 10}, {name: 'Severe Bleeding', severity: 10}, {name: 'Breathing Difficulty', severity: 9}, 
-      {name: 'Anaphylaxis', severity: 10},
+      { name: 'Road Accident', severity: 10 }, { name: 'Fall from Height', severity: 9 }, { name: 'Head Trauma', severity: 10 },
+      { name: 'Severe Burns', severity: 9 },
+      { name: 'Cardiac Arrest', severity: 10 }, { name: 'Heart Attack', severity: 10 }, { name: 'Stroke', severity: 10 },
+      { name: 'Unconsciousness', severity: 9 },
+      { name: 'Poisoning / Overdose', severity: 10 }, { name: 'Drowning', severity: 10 }, { name: 'Electrocution', severity: 10 },
+      { name: 'Stab Wound', severity: 10 },
+      { name: 'Gunshot Wound', severity: 10 }, { name: 'Severe Bleeding', severity: 10 }, { name: 'Breathing Difficulty', severity: 9 },
+      { name: 'Anaphylaxis', severity: 10 },
     ]
   },
   "Cardiology": {
     label: 'Cardiology',
     color: '#4f46e5', bg: '#eef2ff', border: '#c7d2fe',
     diseases: [
-      {name: 'Chest Pain (Angina)', severity: 8}, {name: 'Palpitations', severity: 6}, {name: 'High Blood Pressure', severity: 6},
-      {name: 'Shortness of Breath', severity: 7}, {name: 'Fainting / Syncope', severity: 8}, {name: 'Irregular Heartbeat', severity: 7},
-      {name: 'Heart Murmur', severity: 5}, {name: 'Swollen Legs (Edema)', severity: 5}
+      { name: 'Chest Pain (Angina)', severity: 8 }, { name: 'Palpitations', severity: 6 }, { name: 'High Blood Pressure', severity: 6 },
+      { name: 'Shortness of Breath', severity: 7 }, { name: 'Fainting / Syncope', severity: 8 }, { name: 'Irregular Heartbeat', severity: 7 },
+      { name: 'Heart Murmur', severity: 5 }, { name: 'Swollen Legs (Edema)', severity: 5 }
     ]
   },
   "Neurology": {
     label: 'Neurology',
     color: '#7e22ce', bg: '#faf5ff', border: '#e9d5ff',
     diseases: [
-      {name: 'Seizures / Epilepsy', severity: 8}, {name: 'Severe Migraine', severity: 6}, {name: 'Numbness / Tingling', severity: 5},
-      {name: 'Sudden Weakness', severity: 9}, {name: 'Memory Loss', severity: 4}, {name: 'Tremors', severity: 5},
-      {name: 'Vertigo / Dizziness', severity: 4}, {name: 'Loss of Coordination', severity: 7}
+      { name: 'Seizures / Epilepsy', severity: 8 }, { name: 'Severe Migraine', severity: 6 }, { name: 'Numbness / Tingling', severity: 5 },
+      { name: 'Sudden Weakness', severity: 9 }, { name: 'Memory Loss', severity: 4 }, { name: 'Tremors', severity: 5 },
+      { name: 'Vertigo / Dizziness', severity: 4 }, { name: 'Loss of Coordination', severity: 7 }
     ]
   },
   "Pediatrics": {
     label: 'Pediatrics',
     color: '#b45309', bg: '#fffbeb', border: '#fde68a',
     diseases: [
-      {name: 'High Fever in Infant', severity: 8}, {name: 'Croup / Hacking Cough', severity: 6}, {name: 'Asthma Attack', severity: 8},
-      {name: 'Ear Infection', severity: 4}, {name: 'Chickenpox / Measles', severity: 5}, {name: 'Colic', severity: 3},
-      {name: 'Difficulty Feeding', severity: 6}, {name: 'Lethargy in Toddler', severity: 8}
+      { name: 'High Fever in Infant', severity: 8 }, { name: 'Croup / Hacking Cough', severity: 6 }, { name: 'Asthma Attack', severity: 8 },
+      { name: 'Ear Infection', severity: 4 }, { name: 'Chickenpox / Measles', severity: 5 }, { name: 'Colic', severity: 3 },
+      { name: 'Difficulty Feeding', severity: 6 }, { name: 'Lethargy in Toddler', severity: 8 }
     ]
   }
 };
@@ -80,14 +80,14 @@ function switchDiseaseCategory(cat, btn) {
   if (btn) btn.classList.add('active');
   selectedDisease = '';
   document.getElementById('diseaseInput').value = '';
-  
+
   const deptSelect = document.getElementById('department');
   if (deptSelect.value !== cat) deptSelect.value = cat;
 
   renderDiseaseGrid();
 }
 
-document.getElementById('department').addEventListener('change', function() {
+document.getElementById('department').addEventListener('change', function () {
   const cat = this.value;
   const btn = document.querySelector(`.dis-cat-btn[data-cat="${cat}"]`);
   switchDiseaseCategory(cat, btn);
@@ -101,7 +101,7 @@ function renderDiseaseGrid() {
       style="background:${selectedDisease === d.name ? cat.color : cat.bg};
              color:${selectedDisease === d.name ? '#fff' : cat.color};
              border-color:${cat.border};"
-      onclick="selectDisease('${d.name.replace(/'/g,"\\'")}', ${d.severity})">
+      onclick="selectDisease('${d.name.replace(/'/g, "\\'")}', ${d.severity})">
       ${d.name}
     </span>
   `).join('');
@@ -110,12 +110,12 @@ function renderDiseaseGrid() {
 function selectDisease(name, severity) {
   selectedDisease = name;
   document.getElementById('diseaseInput').value = name;
-  
+
   if (severity) {
     document.getElementById('severitySlider').value = severity;
     document.getElementById('severitySlider').dispatchEvent(new Event('input'));
   }
-  
+
   renderDiseaseGrid();
 }
 
@@ -123,9 +123,9 @@ let patients = [];
 let attended = 0;
 async function fetchPatients() {
   try {
-    const response = await fetch(`${API_BASE_URL}/patients`);
+    const response = await fetch(`${API_BASE_URL}/api/patients`);
     const data = await response.json();
-    
+
     const existingPatients = patients;
 
     patients = data.map(p => {
@@ -184,7 +184,7 @@ const sevNum = document.getElementById('sevNum');
 const sevLabel = document.getElementById('sevLabel');
 const sevBarFill = document.getElementById('sevBarFill');
 
-slider.addEventListener('input', function() {
+slider.addEventListener('input', function () {
   const v = parseInt(this.value);
   sevNum.textContent = v;
   sevNum.style.color = sevColor(v);
@@ -226,20 +226,20 @@ function addPatient() {
     arrivalTime: Date.now(),
   };
 
-  fetch(`${API_BASE_URL}/patients`, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    name: name,
-    age: 25,
-    disease: disease,
-    priority: severity
+  fetch(`${API_BASE_URL}/api/patients`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name: name,
+      age: 25,
+      disease: disease,
+      priority: severity
+    })
   })
-})
-.then(() => fetchPatients())
-.catch(err => console.error(err));
+    .then(() => fetchPatients())
+    .catch(err => console.error(err));
   document.getElementById('patientName').value = '';
   document.getElementById('diseaseInput').value = '';
   document.getElementById('severitySlider').value = 5;
@@ -346,30 +346,30 @@ function renderQueue() {
 }
 
 function escHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 function attendPatient(id) {
-  fetch(`${API_BASE_URL}/patients/${id}`, {
+  fetch(`${API_BASE_URL}/api/patients/${id}`, {
     method: "DELETE"
   })
-  .then(() => {
-    attended++;
-    fetchPatients();
-    showToast("Patient attended ✔");
-  })
-  .catch(err => console.error(err));
+    .then(() => {
+      attended++;
+      fetchPatients();
+      showToast("Patient attended ✔");
+    })
+    .catch(err => console.error(err));
 }
 
 function removePatient(id) {
-  fetch(`${API_BASE_URL}/patients/${id}`, {
+  fetch(`${API_BASE_URL}/api/patients/${id}`, {
     method: "DELETE"
   })
-  .then(() => {
-    fetchPatients();
-    showToast("Removed patient from queue ✔");
-  })
-  .catch(err => console.error(err));
+    .then(() => {
+      fetchPatients();
+      showToast("Removed patient from queue ✔");
+    })
+    .catch(err => console.error(err));
 }
 
 function updateStats() {
