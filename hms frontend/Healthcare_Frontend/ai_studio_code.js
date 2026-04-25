@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8081"; // CHANGE THIS TO YOUR RENDER/RAILWAY URL AFTER DEPLOYMENT
+const API_BASE_URL = "https://healthcare-backend-ghcl.onrender.com"; // Render backend URL
 
 const DISEASE_CATS = {
   "General OPD": {
