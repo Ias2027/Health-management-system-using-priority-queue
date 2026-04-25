@@ -1,3 +1,5 @@
+const API_BASE_URL = "http://localhost:8081"; // CHANGE THIS TO YOUR RENDER/RAILWAY URL AFTER DEPLOYMENT
+
 const DISEASE_CATS = {
   "General OPD": {
     label: 'General OPD',
@@ -121,7 +123,7 @@ let patients = [];
 let attended = 0;
 async function fetchPatients() {
   try {
-    const response = await fetch("http://localhost:8081/patients");
+    const response = await fetch(`${API_BASE_URL}/patients`);
     const data = await response.json();
     
     const existingPatients = patients;
@@ -224,7 +226,7 @@ function addPatient() {
     arrivalTime: Date.now(),
   };
 
-  fetch("http://localhost:8081/patients", {
+  fetch(`${API_BASE_URL}/patients`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -348,7 +350,7 @@ function escHtml(s) {
 }
 
 function attendPatient(id) {
-  fetch(`http://localhost:8081/patients/${id}`, {
+  fetch(`${API_BASE_URL}/patients/${id}`, {
     method: "DELETE"
   })
   .then(() => {
@@ -360,7 +362,7 @@ function attendPatient(id) {
 }
 
 function removePatient(id) {
-  fetch(`http://localhost:8081/patients/${id}`, {
+  fetch(`${API_BASE_URL}/patients/${id}`, {
     method: "DELETE"
   })
   .then(() => {
